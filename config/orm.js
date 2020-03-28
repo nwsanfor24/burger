@@ -6,8 +6,9 @@ function printQuestionMarks(num) {
     for (var i = 0; i < num; i++) {
         arr.push("?");
     }
-
-    return arr.toString();
+    let answer = arr.join(" , ");
+    console.log(answer);
+    return answer;
 }
 
 function objToSql(ob) {
@@ -21,11 +22,11 @@ function objToSql(ob) {
                 value = "'" + value + "'";
             }
 
-            arr.push(key + "=" + value);
+            arr.push(key + " = " + value);
         }
     }
 
-    return arr.toString();
+    return arr.join(" ");
 }
 
 const orm = {
@@ -41,14 +42,16 @@ const orm = {
     },
     //Create new burger
     create: function(table, cols, vals, cb) {
-        let queryString = "INSERT INTO " + table;
+       let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
 
-        queryString += " (";
-        queryString += cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
+        // let queryString = "INSERT INTO " + table;
+
+        // queryString += " (";
+        // queryString += cols.toString();
+        // queryString += ") ";
+        // queryString += "VALUES (";
+        // queryString += printQuestionMarks(vals.length);
+        // queryString += ") ";
 
         console.log(queryString);
 
@@ -62,12 +65,14 @@ const orm = {
     },
     //Update a Burger
     update: function(table, objColVals, condition, cb) {
-        let queryString = "UPDATE " + table;
+        let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
-        queryString += " SET ";
-        queryString += objToSql(objColVals);
-        queryString += " WHERE ";
-        queryString += condition;
+        // let queryString = "UPDATE " + table;
+
+        // queryString += " SET ";
+        // queryString += objToSql(objColVals);
+        // queryString += " WHERE ";
+        // queryString += condition;
 
         console.log(queryString);
         connection.query(queryString, function(err, result) {

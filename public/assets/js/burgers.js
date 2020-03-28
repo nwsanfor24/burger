@@ -1,7 +1,7 @@
 $(function() {
     $(".change-devour").on("click", function(event) {
         let id = $(this).data("id");
-        let newDevour = $(this).data("newDevour");
+        let newDevour = $(this).attr("data-newdevour");
 
         let newDevourState = {
             devoured: newDevour
