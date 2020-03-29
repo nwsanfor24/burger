@@ -25,11 +25,11 @@ $(function() {
 
         let newBurger = {
             name: $("#br").val().trim(),
-            devoured: $("[name=devoured]:checked").val().trim()
+            devoured: $("[name=group1]:checked").val().trim()
         };
 
         //Send POST request
-        $.ajax("/api/burgers", {
+        $.ajax("/api/burgers/", {
             type: "POST",
             data: newBurger
         }).then(
