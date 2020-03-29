@@ -44,15 +44,6 @@ const orm = {
     create: function(table, cols, vals, cb) {
        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
 
-        // let queryString = "INSERT INTO " + table;
-
-        // queryString += " (";
-        // queryString += cols.toString();
-        // queryString += ") ";
-        // queryString += "VALUES (";
-        // queryString += printQuestionMarks(vals.length);
-        // queryString += ") ";
-
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, result) {
@@ -67,14 +58,19 @@ const orm = {
     update: function(table, objColVals, condition, cb) {
         let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
 
-        // let queryString = "UPDATE " + table;
-
-        // queryString += " SET ";
-        // queryString += objToSql(objColVals);
-        // queryString += " WHERE ";
-        // queryString += condition;
-
         console.log(queryString);
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    },
+    //Delete a burger
+    delete: function(table, condition, cb) {
+        let queryString = `DELETE FROM ${table} WHERE ${condition}`;
+
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
