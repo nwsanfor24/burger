@@ -22,7 +22,7 @@ function objToSql(ob) {
                 value = "'" + value + "'";
             }
 
-            arr.push(key + " = " + value);
+            arr.push(key + value);
         }
     }
 

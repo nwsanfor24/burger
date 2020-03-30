@@ -17,4 +17,10 @@ li {
   .form-group {
     margin-bottom: 5px;
   }
+
+body {
+  background-image: url("../css/img/burgers.jpg");
+  display: flex;
+  flex-direction: column;
+}
   
