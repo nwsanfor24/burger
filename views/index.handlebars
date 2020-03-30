@@ -5,7 +5,7 @@
     <div class="col m6 valign left-align">
       <div class="card large">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator">
+          <img class="activator" src="../img/devour.jpg">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Burgers that are not devoured<i
@@ -13,20 +13,22 @@
         </div>
         <div class="card-reveal">
           <span class="card-title"><i class="material-icons right">close</i></span>
-          <ul>
-            {{#each burgers}}
-            {{#unless devoured}}
-            {{> burgers/burger-block devoured=false}}
-            {{/unless}}
-            {{/each}}
-          </ul>
+          <p>
+            <ul>
+              {{#each burgers}}
+              {{#unless devoured}}
+              {{> burgers/burger-block devoured=false}}
+              {{/unless}}
+              {{/each}}
+            </ul>
+          </p>
         </div>
       </div>
     </div>
     <div class="col m6 valign left-align">
       <div class="card large">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator">
+          <img class="activator" src="../img/eaten.jpg">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">Burgers that are devoured!<i
