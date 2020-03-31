@@ -3,50 +3,41 @@
 <div class="container">
   <div class="row">
     <div class="col m6 valign left-align">
-      <div class="card large">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="../img/devour.jpg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Burgers that are not devoured<i
-              class="material-icons right">more_vert</i></span>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title"><i class="material-icons right">close</i></span>
-          <p>
-            <ul>
-              {{#each burgers}}
-              {{#unless devoured}}
-              {{> burgers/burger-block devoured=false}}
-              {{/unless}}
-              {{/each}}
-            </ul>
-          </p>
+      <div class="card large horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>
+              <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+              </ul>
+            </p>
+          </div>
         </div>
       </div>
     </div>
     <div class="col m6 valign left-align">
-      <div class="card large">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="../img/eaten.jpg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Burgers that are devoured!<i
-              class="material-icons right">more_vert</i></span>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title"><i class="material-icons right">close</i></span>
-          <ul>
-            {{#each burgers}}
-            {{#if devoured}}
-            {{> burgers/burger-block devoured=true}}
-            {{/if}}
-            {{/each}}
-          </ul>
+      <div class="card large horizontal">
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>
+              <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
+              </ul>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
